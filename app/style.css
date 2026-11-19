@@ -120,3 +120,4 @@ kbd { border: 1px solid var(--border); border-bottom-width: 2px; border-radius: 
   .masthead-inner { flex-direction: column; }
   .progress-card { min-width: 0; }
 }
+/* r2: re-recorded 2026-11-19; no visual change. */

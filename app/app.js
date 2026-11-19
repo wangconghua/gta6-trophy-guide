@@ -1049,3 +1049,4 @@ document.addEventListener('keydown', e => {
 applyTheme();
 renderProgress();
 route();
+// r2: re-recorded 2026-11-19; behaviour unchanged.
