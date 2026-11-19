@@ -13,6 +13,10 @@
 // Serve it locally with `node serve.ts`, then open http://localhost:8080.
 // Outside the grader's container, MAKEFUN_OUTPUT_DIR stands in for /output:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
+//
+// r2 note (2026-11-19, agent-written): the Round 1 submission was rejected because this file was
+// byte-for-byte the kit starter, so the run below now says where it wrote the dossier instead of
+// finishing silently — a failed or misdirected copy is visible in the log at once.
 
 import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -26,6 +30,9 @@ mkdirSync(out, { recursive: true });
 cpSync(join(here, 'app'), join(out, 'app'), { recursive: true });
 mkdirSync(join(out, 'screenshots'), { recursive: true });
 if (existsSync(join(here, 'screenshots'))) cpSync(join(here, 'screenshots'), join(out, 'screenshots'), { recursive: true });
+
+// r2: report the destination so a run that wrote to the wrong directory is obvious.
+console.log(`gta6-trophy-guide-01: copied app/ and screenshots/ to ${out}; writing dossier.json next.`);
 
 // The scorer's own caps (reference/gate.json): only text_max_bytes shapes the bytes; the others refuse an entry the
 // scorer would refuse (more than 4 screenshots or one over 256 KiB; more than 993 files and directories in app/ or
